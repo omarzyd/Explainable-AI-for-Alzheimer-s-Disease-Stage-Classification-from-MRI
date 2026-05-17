@@ -14,7 +14,7 @@
   <rect width="1200" height="280" rx="16" fill="url(#bg)"/>
   <circle cx="1020" cy="70" r="120" fill="#38bdf8" opacity="0.08"/>
   <circle cx="180" cy="220" r="90" fill="#34d399" opacity="0.1"/>
-  <text x="56" y="98" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="20" font-weight="600" letter-spacing="0.08em">OFFICIAL IMPLEMENTATION REPOSITORY</text>
+  <text x="56" y="98" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="19" font-weight="600" letter-spacing="0.06em">MANUSCRIPT IN PREPARATION, 2026</text>
   <text x="56" y="152" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="34" font-weight="700">Alzheimer&apos;s Disease Stage Classification from MRI</text>
   <text x="56" y="192" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="19">ADNI | Liquid Finder | Patient-level CV | Grad-CAM | LIME | SHAP</text>
   <rect x="56" y="218" width="380" height="6" rx="3" fill="url(#accent)"/>

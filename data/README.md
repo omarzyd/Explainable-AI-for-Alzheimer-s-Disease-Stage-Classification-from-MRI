@@ -1,6 +1,6 @@
 # Data directory
 
-Optional local ADNI slice cache for reproducing *Zayed et al. (2026)*. The full preprocessed cohort is obtained via Kaggle or `gdown` as described in the [reproducibility runbook](../docs/PIPELINE.md).
+Optional local ADNI slice cache for reproducing experiments from our manuscript in preparation (2026). The full preprocessed cohort is obtained via Kaggle or `gdown` as described in the [reproducibility runbook](../docs/PIPELINE.md).
 
 ## Recommended sources
 

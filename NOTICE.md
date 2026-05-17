@@ -6,7 +6,7 @@ This repository pairs a **peer-style research manuscript** with an **open-source
 
 | Item | Location |
 |------|----------|
-| **Version of record** | [`docs/reports/Explainable AI for AD Stage Classification.pdf`](docs/reports/Explainable%20AI%20for%20AD%20Stage%20Classification.pdf) |
+| **Draft manuscript** | [`docs/reports/Explainable AI for AD Stage Classification.pdf`](docs/reports/Explainable%20AI%20for%20AD%20Stage%20Classification.pdf) (in preparation, 2026) |
 | **Terms** | [`docs/reports/COPYRIGHT.md`](docs/reports/COPYRIGHT.md) |
 
 **Copyright © 2026 Omar Zayed, Ahmed Moatasem, Malak Khaled, and Farida Ali.**

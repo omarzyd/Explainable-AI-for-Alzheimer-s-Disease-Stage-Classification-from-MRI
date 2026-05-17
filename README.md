@@ -5,8 +5,8 @@
 <h1 align="center">Explainable AI for Alzheimer's Disease Stage Classification from MRI</h1>
 
 <p align="center">
-  <strong>Official implementation</strong> · Zayed et al. (2026)<br/>
-  Structural MRI · multiclass staging (<code>CN</code> · <code>MCI</code> · <code>AD</code>) · post-hoc explainability
+  <strong>Manuscript in preparation, 2026</strong><br/>
+  Structural MRI · multiclass staging (<code>CN</code> · <code>MCI</code> · <code>AD</code>) · companion code &amp; experiments
 </p>
 
 <p align="center">
@@ -16,12 +16,12 @@
   <img src="https://img.shields.io/badge/XAI-Grad--CAM%20%7C%20LIME%20%7C%20SHAP-34d399" alt="XAI"/>
   <img src="https://img.shields.io/badge/Code-MIT-blue.svg" alt="Code license"/>
   <img src="https://img.shields.io/badge/Manuscript-©%20Authors-lightgrey" alt="Manuscript copyright"/>
-  <img src="https://img.shields.io/badge/Publication-2026-8b5cf6" alt="Publication year"/>
+  <img src="https://img.shields.io/badge/Manuscript-in%20preparation-2026-8b5cf6" alt="Manuscript in preparation"/>
   <img src="https://img.shields.io/badge/Dataset-ADNI-0ea5e9" alt="ADNI"/>
 </p>
 
 <p align="center">
-  <a href="#publication">📄 Manuscript</a> ·
+  <a href="#manuscript">📄 Manuscript</a> ·
   <a href="#how-to-cite">Cite</a> ·
   <a href="#overview">Overview</a> ·
   <a href="#pipeline">Pipeline</a> ·
@@ -32,17 +32,17 @@
 
 ---
 
-## Publication
+## Manuscript
 
-> **Canonical reference.** Methods, benchmarks, and scientific claims are defined in the **manuscript**—not in this README alone.
+> **Work in progress.** Methods, benchmarks, and scientific claims are defined in the **draft manuscript** below—not in this README alone. This repository is companion code; the paper is **not yet published**.
 
 | | |
 |---|---|
 | **Title** | Explainable AI for Alzheimer's Disease Stage Classification from MRI |
-| **Authors** | Omar Zayed · Ahmed Moatasem · Malak Khaled · Farida Ali (*Zayed et al., 2026*) |
+| **Authors** | Omar Zayed · Ahmed Moatasem · Malak Khaled · Farida Ali |
 | **Affiliation** | Department of Computational Science and Artificial Intelligence, **Zewail City of Science and Technology**, Cairo, Egypt |
-| **Released** | 12 May 2026 |
-| **Manuscript** | [**PDF (version of record)**](docs/reports/Explainable%20AI%20for%20AD%20Stage%20Classification.pdf) |
+| **Status** | **Manuscript in preparation, 2026** (draft dated May 2026) |
+| **Draft PDF** | [**Download current draft**](docs/reports/Explainable%20AI%20for%20AD%20Stage%20Classification.pdf) |
 
 **Contributions:** (1) **Liquid Finder** — CSF-guided Z-axis cropping for ventricular axial slices; (2) **Evaluation audit** — controlled slice-level vs. patient-level splits on ADNI (*n*=320); (3) **Honest OvA benchmarks** — ResNet-50 ensemble: AD 83.3%, CN 80.0%, MCI 60.0%; (4) **Clinical XAI validation** — Grad-CAM, LIME, SHAP align with periventricular biomarkers.
 
@@ -58,7 +58,7 @@
   author  = {Zayed, Omar and Moatasem, Ahmed and Khaled, Malak and Ali, Farida},
   year    = {2026},
   month   = {5},
-  note    = {Manuscript. Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt}
+  note    = {Manuscript in preparation, 2026. Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt}
 }
 ```
 
@@ -69,7 +69,7 @@
 
 ## Overview
 
-This repository is the **official implementation** accompanying *Zayed et al. (2026)*. It contains **17 reproducible experiments** (plus preprocessing & EDA notebooks) that classify Alzheimer's disease stage from structural MRI slices. Each notebook trains (or fine-tunes) a model, evaluates on held-out patients or scans, and applies **at least four explainability techniques**—Grad-CAM, LIME, SHAP, Integrated Gradients, Captum, saliency maps, and more.
+This repository holds **companion code and notebooks** for our manuscript in preparation (2026). It contains **17 reproducible experiments** (plus preprocessing & EDA notebooks) that classify Alzheimer's disease stage from structural MRI slices. Each notebook trains (or fine-tunes) a model, evaluates on held-out patients or scans, and applies **at least four explainability techniques**—Grad-CAM, LIME, SHAP, Integrated Gradients, Captum, saliency maps, and more.
 
 | Label | Meaning |
 |-------|---------|
@@ -254,7 +254,7 @@ Local sample layout: [`data/README.md`](data/README.md).
 
 ---
 
-## Publications & legal
+## Manuscript & legal
 
 | Document | License |
 |----------|---------|

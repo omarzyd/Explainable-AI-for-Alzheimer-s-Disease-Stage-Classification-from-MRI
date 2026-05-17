@@ -5,7 +5,7 @@ Contributions to the **implementation** are welcome. The **manuscript** remains 
 ## Before contributing
 
 1. Read [NOTICE.md](NOTICE.md) — MIT code vs. protected PDF.
-2. Cite [*Zayed et al., 2026*](docs/reports/citation.bib) if you use methods, benchmarks, or figures.
+2. Cite the [manuscript in preparation (2026)](docs/reports/citation.bib) if you use methods, benchmarks, or figures.
 3. Do not rehost [`docs/reports/Explainable AI for AD Stage Classification.pdf`](docs/reports/Explainable%20AI%20for%20AD%20Stage%20Classification.pdf).
 
 ## Protected paths (author review required)

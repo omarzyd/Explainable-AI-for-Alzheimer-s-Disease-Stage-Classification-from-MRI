@@ -1,6 +1,6 @@
 # Reproducible experiments
 
-Implementation notebooks for *Zayed et al. (2026)* — Explainable AI for Alzheimer's Disease Stage Classification from MRI.
+Companion notebooks for our manuscript in preparation (2026) — Explainable AI for Alzheimer's Disease Stage Classification from MRI.
 
 | Directory | Experiments | Focus |
 |-----------|-------------|--------|

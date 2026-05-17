@@ -1,6 +1,6 @@
 # Architecture & pipelines
 
-This document describes how the implementation notebooks are structured and how data flows through the experimental pipeline described in *Zayed et al. (2026)*.
+This document describes how the implementation notebooks are structured and how data flows through the experimental pipeline in our manuscript in preparation (2026).
 
 ![End-to-end pipeline](../assets/pipeline-overview.svg)
 

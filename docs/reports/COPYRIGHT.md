@@ -4,7 +4,7 @@
 
 | File | Description |
 |------|-------------|
-| `Explainable AI for AD Stage Classification.pdf` | **Primary manuscript** (*Zayed et al., 2026*) — version of record |
+| `Explainable AI for AD Stage Classification.pdf` | **Draft manuscript** (in preparation, 2026) |
 | `Team9_Phase1.pdf` | Supplementary technical report (same ownership) |
 
 **Copyright holders:** Omar Zayed, Ahmed Moatasem, Malak Khaled, Farida Ali.  
@@ -25,7 +25,7 @@
 - Reusing figures, tables, or the **Liquid Finder** description without citation (and author approval where required)
 - Presenting this work as your own in theses, papers, or reviews
 
-## Version of record
+## Draft integrity
 
 Do **not** replace `Explainable AI for AD Stage Classification.pdf` in pull requests unless issuing an **author-approved revision** (prefer a new filename, e.g. `..._v1.1.pdf`).
 

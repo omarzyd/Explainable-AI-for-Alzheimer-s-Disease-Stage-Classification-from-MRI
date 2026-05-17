@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this software or reproduce our results, please cite Zayed et al. (2026)."
+message: "If you use this software or reproduce our results, please cite the manuscript in preparation (Zayed et al., 2026)."
 type: article
 title: "Explainable AI for Alzheimer's Disease Stage Classification from MRI"
 authors:
@@ -42,5 +42,5 @@ preferred-citation:
       given-names: Farida
   year: 2026
   month: 5
-  notes: "Manuscript. Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt."
+  notes: "Manuscript in preparation, 2026. Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt."
   doi: ""

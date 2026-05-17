@@ -1,6 +1,6 @@
 # Reproducibility runbook
 
-Steps to reproduce experiments from *Zayed et al. (2026)*.
+Steps to reproduce experiments from our manuscript in preparation (2026).
 
 ## Kaggle execution flow
 
