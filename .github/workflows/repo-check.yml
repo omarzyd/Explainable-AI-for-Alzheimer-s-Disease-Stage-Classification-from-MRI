@@ -1,0 +1,36 @@
+name: Repository check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify expected layout
+        run: |
+          test -f README.md
+          test -f requirements.txt
+          test -f CITATION.cff
+          test -f NOTICE.md
+          test -f docs/reports/COPYRIGHT.md
+          test -f "docs/reports/Explainable AI for AD Stage Classification.pdf"
+          test -d assets
+          test -d docs
+          test -d notebooks/omar_zayed
+          test -d notebooks/farida_ali
+          test -d notebooks/malak_khaled
+          test -d notebooks/ahmed_moatasem
+          test -d notebooks/preprocessing
+          echo "Repository structure OK"
+
+      - name: Count notebooks
+        run: |
+          count=$(find notebooks -name '*.ipynb' | wc -l)
+          echo "Found $count notebooks"
+          test "$count" -ge 17

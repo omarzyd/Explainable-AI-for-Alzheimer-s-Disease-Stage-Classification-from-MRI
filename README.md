@@ -1,148 +1,240 @@
-# Explainable AI for Alzheimer's Disease Stage Classification from MRI
+<p align="center">
+  <img src="assets/banner.svg" alt="Explainable AI for Alzheimer's Disease Stage Classification from MRI" width="100%"/>
+</p>
 
-**Team 09** · Explainable Artificial Intelligence Course
+<h1 align="center">Explainable AI for Alzheimer's Disease Stage Classification from MRI</h1>
+
+<p align="center">
+  <strong>Official implementation</strong> · Zayed et al. (2026)<br/>
+  Structural MRI · multiclass staging (<code>CN</code> · <code>MCI</code> · <code>AD</code>) · post-hoc explainability
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?logo=pytorch&logoColor=white" alt="PyTorch"/>
+  <img src="https://img.shields.io/badge/Runtime-Kaggle-20BEFF?logo=kaggle&logoColor=white" alt="Kaggle"/>
+  <img src="https://img.shields.io/badge/XAI-Grad--CAM%20%7C%20LIME%20%7C%20SHAP-34d399" alt="XAI"/>
+  <img src="https://img.shields.io/badge/Code-MIT-blue.svg" alt="Code license"/>
+  <img src="https://img.shields.io/badge/Manuscript-©%20Authors-lightgrey" alt="Manuscript copyright"/>
+  <img src="https://img.shields.io/badge/Publication-2026-8b5cf6" alt="Publication year"/>
+  <img src="https://img.shields.io/badge/Dataset-ADNI-0ea5e9" alt="ADNI"/>
+</p>
+
+<p align="center">
+  <a href="#publication">📄 Manuscript</a> ·
+  <a href="#how-to-cite">Cite</a> ·
+  <a href="#overview">Overview</a> ·
+  <a href="#pipeline">Pipeline</a> ·
+  <a href="#notebooks">Notebooks</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="docs/ARCHITECTURE.md">Architecture</a>
+</p>
 
 ---
 
-## Team Members
+## Publication
 
-| Name | Notebooks |
+> **Canonical reference.** Methods, benchmarks, and scientific claims are defined in the **manuscript**—not in this README alone.
+
+| | |
 |---|---|
-| Omar Zayed | ConvMixer + RF, ResNet-50, SE-CNN + RF |
-| Farida Ali | AlexNet + SVM, CNN, DAD-Net |
-| Malak Khaled | VGG19 + SVM (Patient-Level), VGG19 + SVM (Scan-Level), Dual CNN, DenseNet Multiclass |
-| Ahmed Moatasem | EfficientNet-B0 (K-Fold), EfficientNet-B0 (Multiclass), HTLML Hybrid, ResNet-18 + DenseNet-121 Hybrid, VGG16 + SVM (Binary), Kaggle→ADNI Transfer Learning, Cross-Dataset Validation |
+| **Title** | Explainable AI for Alzheimer's Disease Stage Classification from MRI |
+| **Authors** | Omar Zayed · Ahmed Moatasem · Malak Khaled · Farida Ali (*Zayed et al., 2026*) |
+| **Affiliation** | Department of Computational Science and Artificial Intelligence, **Zewail City of Science and Technology**, Cairo, Egypt |
+| **Released** | 12 May 2026 |
+| **Manuscript** | [**PDF (version of record)**](docs/reports/Explainable%20AI%20for%20AD%20Stage%20Classification.pdf) |
+
+**Contributions:** (1) **Liquid Finder** — CSF-guided Z-axis cropping for ventricular axial slices; (2) **Evaluation audit** — controlled slice-level vs. patient-level splits on ADNI (*n*=320); (3) **Honest OvA benchmarks** — ResNet-50 ensemble: AD 83.3%, CN 80.0%, MCI 60.0%; (4) **Clinical XAI validation** — Grad-CAM, LIME, SHAP align with periventricular biomarkers.
+
+⚠️ **The manuscript is © the authors, all rights reserved.** You may read and cite it; you may **not** redistribute, rehost, or plagiarize it. See [docs/reports/COPYRIGHT.md](docs/reports/COPYRIGHT.md) and [NOTICE.md](NOTICE.md).
 
 ---
 
-## Dataset
+## How to cite
 
-All notebooks run on **Kaggle** and expect the **ADNI** dataset to be available.
-
-**Step 1 — Add the public Kaggle dataset**
-
-In the right-hand Kaggle panel click **Add Data** and search for:
-```
-aryansinghal10/alzheimers-multiclass-dataset-equal-and-augmented
-```
-
-**Step 2 — Add the ADNI dataset**
-
-Upload your `adni_nifti_preprocessed` folder to Kaggle as a **Private Dataset** (Kaggle → Datasets → New Dataset → keep it Private), then add it to the notebook via **Add Data → Your Datasets**.
-
-Alternatively, every notebook contains a setup cell that downloads the ADNI data automatically from Google Drive using `gdown` — no manual upload needed if internet is ON in the Kaggle session.
-
----
-
-## Requirements
-
-All notebooks self-install their dependencies in the first cell. No local setup is needed.
-
-If you want to run locally, install with:
-
-```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-pip install grad-cam lime shap captum scikit-learn xgboost timm tqdm seaborn matplotlib pillow opencv-python
+```bibtex
+@article{zayed2026explainable,
+  title   = {Explainable {AI} for {Alzheimer's} Disease Stage Classification from {MRI}},
+  author  = {Zayed, Omar and Moatasem, Ahmed and Khaled, Malak and Ali, Farida},
+  year    = {2026},
+  month   = {5},
+  note    = {Manuscript. Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt}
+}
 ```
 
-> Python 3.9+ recommended. GPU strongly recommended (CUDA 11.8+).
+- BibTeX file: [`docs/reports/citation.bib`](docs/reports/citation.bib)  
+- GitHub citation metadata: [`CITATION.cff`](CITATION.cff)
 
 ---
 
-## Notebooks
+## Overview
 
-Each notebook is fully self-contained: data loading → preprocessing → model training → evaluation → ≥ 4 XAI techniques.
-
-### Omar Zayed
-
-| Notebook | Model | XAI Techniques |
-|---|---|---|
-| `Team_09_ConvMixer_RF_Omar_Zayed.ipynb` | ConvMixer backbone + Random Forest | Grad-CAM, LIME, SHAP (TreeExplainer), Occlusion Sensitivity |
-| `Team_09_ResNet50_Omar_Zayed.ipynb` | ResNet-50 (K-Fold, 1-vs-All) | Grad-CAM, LIME, SHAP, Integrated Gradients |
-| `Team_09_SE_CNN_RF_Omar_Zayed.ipynb` | SE-CNN + Random Forest | Grad-CAM, LIME, SHAP, Feature Importance |
-
-### Farida Ali
-
-| Notebook | Model | XAI Techniques |
-|---|---|---|
-| `Team_09_AlexNet_SVM_Farida_Ali.ipynb` | AlexNet + SVM | Grad-CAM, LIME, SHAP, Occlusion Sensitivity |
-| `Team_09_CNN_Farida_Ali.ipynb` | Custom CNN | Grad-CAM, LIME, SHAP, Occlusion Sensitivity, Integrated Gradients, Captum |
-| `Team_09_DAD_Net_Farida_Ali.ipynb` | DAD-Net (Ahmed et al., 2022) | Grad-CAM, LIME, Integrated Gradients, Saliency Maps, SmoothGrad, Captum |
-
-### Malak Khaled
-
-| Notebook | Model | XAI Techniques |
-|---|---|---|
-| `Team_09_VGG19_SVM_PatientLevel_Malak_Khaled.ipynb` | VGG-19 + SVM (patient-level) | Grad-CAM, LIME, SHAP, Integrated Gradients, Saliency Maps |
-| `Team_09_VGG19_SVM_ScanLevel_Malak_Khaled.ipynb` | VGG-19 + SVM (scan-level) | Grad-CAM, LIME, SHAP, Saliency Maps, Captum |
-| `Team_09_DualCNN_Malak_Khaled.ipynb` | Dual-branch CNN | Grad-CAM, LIME, Occlusion Sensitivity, Saliency Maps |
-| `Team_09_DenseNet_Multiclass_Malak_Khaled.ipynb` | DenseNet-121 Multiclass | Grad-CAM, LIME, SHAP, Integrated Gradients, Saliency Maps, Captum |
-
-### Ahmed Moatasem
-
-| Notebook | Model | XAI Techniques |
-|---|---|---|
-| `Team_09_EfficientNetB0_KFold_Ahmed_Moatasem.ipynb` | EfficientNet-B0 (patient K-Fold, 1-vs-All) | Grad-CAM, LIME, SHAP, Integrated Gradients |
-| `Team_09_EfficientNetB0_Multiclass_Ahmed_Moatasem.ipynb` | EfficientNet-B0 Multiclass | Grad-CAM, LIME, SHAP, Integrated Gradients, Captum |
-| `Team_09_HTLML_Hybrid_Ahmed_Moatasem.ipynb` | HTLML Hybrid (InceptionV3 + VGG16 → SVM/NB/XGB) | Grad-CAM, LIME, SHAP, Integrated Gradients, Captum |
-| `Team_09_ResNet18_DenseNet121_Hybrid_Ahmed_Moatasem.ipynb` | ResNet-18 + DenseNet-121 Hybrid | Grad-CAM, LIME, SHAP, Integrated Gradients, Captum |
-| `Team_09_VGG16_SVM_Binary_Ahmed_Moatasem.ipynb` | VGG-16 + SVM (3 binary tasks) | Grad-CAM, LIME, SHAP (KernelExplainer), Permutation Importance |
-| `Team_09_Kaggle_ADNI_Transfer_Learning_Ahmed_Moatasem.ipynb` | ResNet-50 (Kaggle pre-train → ADNI fine-tune) | Grad-CAM, LIME, SHAP, Integrated Gradients |
-| `Team_09_Cross_Dataset_Validation_Ahmed_Moatasem.ipynb` | ResNet-50 (zero-shot Kaggle → ADNI) | Grad-CAM, LIME, SHAP, Integrated Gradients |
-
----
-
-## How to Run
-
-1. Open any notebook on **Kaggle**.
-2. Enable **GPU** (Settings → Accelerator → GPU T4 × 2 or P100).
-3. Enable **Internet** (Settings → Internet → On) — required for `gdown` and `pip install`.
-4. Add the two datasets as described in the [Dataset](#dataset) section above.
-5. Click **Run All**.
-
-Each notebook is independent — you can run any one on its own.
-
----
-
-## Classification Classes
+This repository is the **official implementation** accompanying *Zayed et al. (2026)*. It contains **17 reproducible experiments** (plus preprocessing & EDA notebooks) that classify Alzheimer's disease stage from structural MRI slices. Each notebook trains (or fine-tunes) a model, evaluates on held-out patients or scans, and applies **at least four explainability techniques**—Grad-CAM, LIME, SHAP, Integrated Gradients, Captum, saliency maps, and more.
 
 | Label | Meaning |
-|---|---|
-| `CN` | Cognitively Normal |
-| `MCI` | Mild Cognitive Impairment |
-| `AD` | Alzheimer's Disease |
+|-------|---------|
+| **CN** | Cognitively Normal |
+| **MCI** | Mild Cognitive Impairment |
+| **AD** | Alzheimer's Disease |
+
+### Authors & experiments
+
+| Author | Research focus | Implementation notebooks |
+|--------|-------|-----------|
+| **Omar Zayed** | Hybrid & ensemble CNNs | ConvMixer+RF, ResNet-50, SE-CNN+RF |
+| **Farida Ali** | Classical + custom CNNs | AlexNet+SVM, Custom CNN, DAD-Net |
+| **Malak Khaled** | VGG & dual-branch | VGG19+SVM (patient & scan), Dual CNN, DenseNet |
+| **Ahmed Moatasem** | EfficientNet & transfer | EfficientNet K-Fold/Multiclass, HTLML, hybrids, cross-dataset |
 
 ---
 
-## Repository Structure
+## Pipeline
+
+<p align="center">
+  <img src="assets/pipeline-overview.svg" alt="End-to-end ML and XAI pipeline" width="95%"/>
+</p>
+
+Every notebook follows the same research pipeline:
+
+```mermaid
+flowchart LR
+    A[Kaggle + ADNI data] --> B[Preprocess slices]
+    B --> C[Train model]
+    C --> D[Evaluate metrics]
+    D --> E[≥ 4 XAI methods]
+    E --> F[Artifacts]
+```
+
+Detailed diagrams and sequence charts: **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** · Runbook: **[docs/PIPELINE.md](docs/PIPELINE.md)**
+
+---
+
+## Repository structure
+
+<p align="center">
+  <img src="assets/repo-structure.svg" alt="Repository folder layout" width="720"/>
+</p>
 
 ```
-├── Team_09_ConvMixer_RF_Omar_Zayed.ipynb
-├── Team_09_ResNet50_Omar_Zayed.ipynb
-├── Team_09_SE_CNN_RF_Omar_Zayed.ipynb
-├── Team_09_AlexNet_SVM_Farida_Ali.ipynb
-├── Team_09_CNN_Farida_Ali.ipynb
-├── Team_09_DAD_Net_Farida_Ali.ipynb
-├── Team_09_VGG19_SVM_PatientLevel_Malak_Khaled.ipynb
-├── Team_09_VGG19_SVM_ScanLevel_Malak_Khaled.ipynb
-├── Team_09_DualCNN_Malak_Khaled.ipynb
-├── Team_09_DenseNet_Multiclass_Malak_Khaled.ipynb
-├── Team_09_EfficientNetB0_KFold_Ahmed_Moatasem.ipynb
-├── Team_09_EfficientNetB0_Multiclass_Ahmed_Moatasem.ipynb
-├── Team_09_HTLML_Hybrid_Ahmed_Moatasem.ipynb
-├── Team_09_ResNet18_DenseNet121_Hybrid_Ahmed_Moatasem.ipynb
-├── Team_09_VGG16_SVM_Binary_Ahmed_Moatasem.ipynb
-├── Team_09_Kaggle_ADNI_Transfer_Learning_Ahmed_Moatasem.ipynb
-├── Team_09_Cross_Dataset_Validation_Ahmed_Moatasem.ipynb
-├── data/
-│   └── dataset_images/
-├── team09_preprocessing.ipynb
-├── eda-adni.ipynb
+.
+├── assets/                    # Banner & pipeline visuals (SVG)
+├── docs/
+│   ├── ARCHITECTURE.md        # System & XAI architecture
+│   ├── PIPELINE.md            # Kaggle runbook
+│   └── reports/               # Manuscript & supplementary PDFs
+├── notebooks/
+│   ├── preprocessing/         # EDA & Liquid Finder pipeline
+│   ├── omar_zayed/
+│   ├── farida_ali/
+│   ├── malak_khaled/
+│   └── ahmed_moatasem/
+├── data/                      # Optional local slices (see data/README.md)
+├── requirements.txt
+├── CONTRIBUTING.md
 └── README.md
 ```
 
 ---
 
+## Notebooks
+
+Paths are relative to `notebooks/`. Each file is **self-contained** on Kaggle.
+
+### Preprocessing & EDA
+
+| Notebook | Description |
+|----------|-------------|
+| [`preprocessing/team09_preprocessing.ipynb`](notebooks/preprocessing/team09_preprocessing.ipynb) | Liquid Finder & preprocessing pipeline |
+| [`preprocessing/eda-adni.ipynb`](notebooks/preprocessing/eda-adni.ipynb) | Exploratory ADNI analysis |
+
+### Omar Zayed
+
+| Notebook | Model | XAI |
+|----------|-------|-----|
+| [`omar_zayed/Team_09_ConvMixer_RF_Omar_Zayed.ipynb`](notebooks/omar_zayed/Team_09_ConvMixer_RF_Omar_Zayed.ipynb) | ConvMixer + Random Forest | Grad-CAM, LIME, SHAP, Occlusion |
+| [`omar_zayed/Team_09_ResNet50_Omar_Zayed.ipynb`](notebooks/omar_zayed/Team_09_ResNet50_Omar_Zayed.ipynb) | ResNet-50 (K-Fold, 1-vs-All) | Grad-CAM, LIME, SHAP, Integrated Gradients |
+| [`omar_zayed/Team_09_SE_CNN_RF_Omar_Zayed.ipynb`](notebooks/omar_zayed/Team_09_SE_CNN_RF_Omar_Zayed.ipynb) | SE-CNN + Random Forest | Grad-CAM, LIME, SHAP, Feature importance |
+
+### Farida Ali
+
+| Notebook | Model | XAI |
+|----------|-------|-----|
+| [`farida_ali/Team_09_AlexNet_SVM_Farida_Ali.ipynb`](notebooks/farida_ali/Team_09_AlexNet_SVM_Farida_Ali.ipynb) | AlexNet + SVM | Grad-CAM, LIME, SHAP, Occlusion |
+| [`farida_ali/Team_09_CNN_Farida_Ali.ipynb`](notebooks/farida_ali/Team_09_CNN_Farida_Ali.ipynb) | Custom CNN | Grad-CAM, LIME, SHAP, IG, Captum |
+| [`farida_ali/Team_09_DAD_Net_Farida_Ali.ipynb`](notebooks/farida_ali/Team_09_DAD_Net_Farida_Ali.ipynb) | DAD-Net | Grad-CAM, LIME, IG, Saliency, SmoothGrad, Captum |
+
+### Malak Khaled
+
+| Notebook | Model | XAI |
+|----------|-------|-----|
+| [`malak_khaled/Team_09_VGG19_SVM_PatientLevel_Malak_Khaled.ipynb`](notebooks/malak_khaled/Team_09_VGG19_SVM_PatientLevel_Malak_Khaled.ipynb) | VGG-19 + SVM (patient) | Grad-CAM, LIME, SHAP, IG, Saliency |
+| [`malak_khaled/Team_09_VGG19_SVM_ScanLevel_Malak_Khaled.ipynb`](notebooks/malak_khaled/Team_09_VGG19_SVM_ScanLevel_Malak_Khaled.ipynb) | VGG-19 + SVM (scan) | Grad-CAM, LIME, SHAP, Saliency, Captum |
+| [`malak_khaled/Team_09_DualCNN_Malak_Khaled.ipynb`](notebooks/malak_khaled/Team_09_DualCNN_Malak_Khaled.ipynb) | Dual-branch CNN | Grad-CAM, LIME, Occlusion, Saliency |
+| [`malak_khaled/Team_09_DenseNet_Multiclass_Malak_Khaled.ipynb`](notebooks/malak_khaled/Team_09_DenseNet_Multiclass_Malak_Khaled.ipynb) | DenseNet-121 | Grad-CAM, LIME, SHAP, IG, Captum |
+
+### Ahmed Moatasem
+
+| Notebook | Model | XAI |
+|----------|-------|-----|
+| [`ahmed_moatasem/Team_09_EfficientNetB0_KFold_Ahmed_Moatasem.ipynb`](notebooks/ahmed_moatasem/Team_09_EfficientNetB0_KFold_Ahmed_Moatasem.ipynb) | EfficientNet-B0 K-Fold | Grad-CAM, LIME, SHAP, IG |
+| [`ahmed_moatasem/Team_09_EfficientNetB0_Multiclass_Ahmed_Moatasem.ipynb`](notebooks/ahmed_moatasem/Team_09_EfficientNetB0_Multiclass_Ahmed_Moatasem.ipynb) | EfficientNet-B0 multiclass | Grad-CAM, LIME, SHAP, IG, Captum |
+| [`ahmed_moatasem/Team_09_HTLML_Hybrid_Ahmed_Moatasem.ipynb`](notebooks/ahmed_moatasem/Team_09_HTLML_Hybrid_Ahmed_Moatasem.ipynb) | HTLML hybrid | Grad-CAM, LIME, SHAP, IG, Captum |
+| [`ahmed_moatasem/Team_09_ResNet18_DenseNet121_Hybrid_Ahmed_Moatasem.ipynb`](notebooks/ahmed_moatasem/Team_09_ResNet18_DenseNet121_Hybrid_Ahmed_Moatasem.ipynb) | ResNet-18 + DenseNet-121 | Grad-CAM, LIME, SHAP, IG, Captum |
+| [`ahmed_moatasem/Team_09_VGG16_SVM_Binary_Ahmed_Moatasem.ipynb`](notebooks/ahmed_moatasem/Team_09_VGG16_SVM_Binary_Ahmed_Moatasem.ipynb) | VGG-16 + SVM (binary) | Grad-CAM, LIME, SHAP, Permutation importance |
+| [`ahmed_moatasem/Team_09_Kaggle_ADNI_Transfer_Learning_Ahmed_Moatasem.ipynb`](notebooks/ahmed_moatasem/Team_09_Kaggle_ADNI_Transfer_Learning_Ahmed_Moatasem.ipynb) | Transfer learning | Grad-CAM, LIME, SHAP, IG |
+| [`ahmed_moatasem/Team_09_Cross_Dataset_Validation_Ahmed_Moatasem.ipynb`](notebooks/ahmed_moatasem/Team_09_Cross_Dataset_Validation_Ahmed_Moatasem.ipynb) | Cross-dataset validation | Grad-CAM, LIME, SHAP, IG |
+
+---
+
+## Quick start
+
+### On Kaggle (recommended)
+
+1. Upload or fork a notebook from `notebooks/<author>/`.
+2. **Settings → Accelerator → GPU** (T4 or P100).
+3. **Settings → Internet → On** (for `pip` and `gdown`).
+4. **Add Data**:
+   - Public: `aryansinghal10/alzheimers-multiclass-dataset-equal-and-augmented`
+   - ADNI: private dataset **or** automatic `gdown` in setup cells
+5. **Run All**.
+
+### Local
+
+```bash
+pip install -r requirements.txt
+jupyter lab notebooks/
+```
+
+For CUDA wheels, see [PyTorch install docs](https://pytorch.org/get-started/locally/).
+
+---
+
+## Dataset
+
+| Source | Role |
+|--------|------|
+| [Kaggle multiclass MRI](https://www.kaggle.com/datasets/aryansinghal10/alzheimers-multiclass-dataset-equal-and-augmented) | Public augmented slices |
+| ADNI `adni_nifti_preprocessed` | NIfTI volumes → axial slices (`CN` / `MCI` / `AD`) |
+
+Local sample layout: [`data/README.md`](data/README.md).
+
+---
+
+## Publications & legal
+
+| Document | License |
+|----------|---------|
+| [**Manuscript (PDF)**](docs/reports/Explainable%20AI%20for%20AD%20Stage%20Classification.pdf) | © authors — [all rights reserved](docs/reports/COPYRIGHT.md) |
+| [Supplementary technical report (PDF)](docs/reports/Team9_Phase1.pdf) | © authors — supplementary material |
+| Implementation (notebooks & code) | [MIT](LICENSE) |
+
+Full details: [docs/reports/README.md](docs/reports/README.md) · [NOTICE.md](NOTICE.md)
+
+---
+
 ## License
 
-MIT
+| Component | Terms |
+|-----------|--------|
+| **Software & notebooks** | [MIT License](LICENSE) — Copyright (c) 2026 Omar Zayed, Ahmed Moatasem, Malak Khaled, Farida Ali |
+| **Manuscript (PDF)** | **All rights reserved** — see [COPYRIGHT.md](docs/reports/COPYRIGHT.md) |

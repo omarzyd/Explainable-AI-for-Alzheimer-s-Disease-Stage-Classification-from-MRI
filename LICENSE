@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Ahmed Moatasem
+Copyright (c) 2026 Omar Zayed, Ahmed Moatasem, Malak Khaled, and Farida Ali
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,9 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+SCOPE: This license applies to source code and Jupyter notebooks in this repository.
+It does NOT apply to the manuscript PDF(s) in docs/reports/, which remain
+© the authors, all rights reserved. See docs/reports/COPYRIGHT.md and NOTICE.md.

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="420" viewBox="0 0 1100 420" role="img" aria-label="End-to-end ML pipeline">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .box { fill: #1e293b; stroke: #38bdf8; stroke-width: 2; }
+      .box-alt { fill: #1e293b; stroke: #34d399; stroke-width: 2; }
+      .title { fill: #f8fafc; font: 600 15px 'Segoe UI', system-ui, sans-serif; }
+      .sub { fill: #94a3b8; font: 13px 'Segoe UI', system-ui, sans-serif; }
+      .lane { fill: none; stroke: #334155; stroke-width: 1.5; stroke-dasharray: 6 4; }
+    </style>
+  </defs>
+  <rect width="1100" height="420" rx="12" fill="#0f172a"/>
+  <text x="32" y="36" class="title" font-size="18">End-to-End Pipeline (per notebook)</text>
+  <line x1="32" y1="52" x2="1068" y2="52" class="lane"/>
+
+  <rect x="40" y="80" width="150" height="72" rx="10" class="box"/>
+  <text x="115" y="110" text-anchor="middle" class="title">Data</text>
+  <text x="115" y="132" text-anchor="middle" class="sub">Kaggle + ADNI</text>
+
+  <rect x="230" y="80" width="150" height="72" rx="10" class="box"/>
+  <text x="305" y="110" text-anchor="middle" class="title">Preprocess</text>
+  <text x="305" y="132" text-anchor="middle" class="sub">NIfTI ’ slices</text>
+
+  <rect x="420" y="80" width="150" height="72" rx="10" class="box"/>
+  <text x="495" y="110" text-anchor="middle" class="title">Train</text>
+  <text x="495" y="132" text-anchor="middle" class="sub">CNN / hybrid</text>
+
+  <rect x="610" y="80" width="150" height="72" rx="10" class="box"/>
+  <text x="685" y="110" text-anchor="middle" class="title">Evaluate</text>
+  <text x="685" y="132" text-anchor="middle" class="sub">Acc · CM · F1</text>
+
+  <rect x="800" y="80" width="150" height="72" rx="10" class="box-alt"/>
+  <text x="875" y="110" text-anchor="middle" class="title">Explain</text>
+  <text x="875" y="132" text-anchor="middle" class="sub">e 4 XAI methods</text>
+
+  <line x1="190" y1="116" x2="230" y2="116" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="380" y1="116" x2="420" y2="116" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="570" y1="116" x2="610" y2="116" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="760" y1="116" x2="800" y2="116" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="32" y="200" class="title" font-size="16">XAI layer (examples)</text>
+  <rect x="40" y="220" width="120" height="56" rx="8" fill="#172554" stroke="#60a5fa"/>
+  <text x="100" y="254" text-anchor="middle" fill="#bfdbfe" font-family="Segoe UI,sans-serif" font-size="13">Grad-CAM</text>
+  <rect x="180" y="220" width="120" height="56" rx="8" fill="#172554" stroke="#60a5fa"/>
+  <text x="240" y="254" text-anchor="middle" fill="#bfdbfe" font-family="Segoe UI,sans-serif" font-size="13">LIME</text>
+  <rect x="320" y="220" width="120" height="56" rx="8" fill="#172554" stroke="#60a5fa"/>
+  <text x="380" y="254" text-anchor="middle" fill="#bfdbfe" font-family="Segoe UI,sans-serif" font-size="13">SHAP</text>
+  <rect x="460" y="220" width="160" height="56" rx="8" fill="#172554" stroke="#60a5fa"/>
+  <text x="540" y="254" text-anchor="middle" fill="#bfdbfe" font-family="Segoe UI,sans-serif" font-size="13">Integrated Grad.</text>
+  <rect x="640" y="220" width="140" height="56" rx="8" fill="#172554" stroke="#34d399"/>
+  <text x="710" y="254" text-anchor="middle" fill="#bbf7d0" font-family="Segoe UI,sans-serif" font-size="13">Captum / Occlusion</text>
+  <rect x="800" y="220" width="140" height="56" rx="8" fill="#172554" stroke="#34d399"/>
+  <text x="870" y="254" text-anchor="middle" fill="#bbf7d0" font-family="Segoe UI,sans-serif" font-size="13">Saliency / SmoothGrad</text>
+
+  <line x1="875" y1="152" x2="875" y2="200" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <line x1="875" y1="200" x2="540" y2="220" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.6"/>
+
+  <rect x="40" y="320" width="1020" height="72" rx="10" fill="#1e293b" stroke="#475569"/>
+  <text x="60" y="352" class="title" font-size="14">Outputs</text>
+  <text x="60" y="376" class="sub">Checkpoints · metrics CSV · confusion matrices · heatmaps · LIME panels · SHAP plots ’ `/kaggle/working`</text>
+</svg>

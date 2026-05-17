@@ -1,0 +1,46 @@
+cff-version: 1.2.0
+message: "If you use this software or reproduce our results, please cite Zayed et al. (2026)."
+type: article
+title: "Explainable AI for Alzheimer's Disease Stage Classification from MRI"
+authors:
+  - family-names: Zayed
+    given-names: Omar
+    affiliation: "Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt"
+  - family-names: Moatasem
+    given-names: Ahmed
+    affiliation: "Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt"
+  - family-names: Khaled
+    given-names: Malak
+    affiliation: "Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt"
+  - family-names: Ali
+    given-names: Farida
+    affiliation: "Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt"
+repository-code: "https://github.com/omarzyd/Explainable-AI-for-Alzheimer-s-Disease-Stage-Classification-from-MRI"
+url: "https://github.com/omarzyd/Explainable-AI-for-Alzheimer-s-Disease-Stage-Classification-from-MRI"
+abstract: "Rigorous re-evaluation of deep learning for AD stage classification from ADNI MRI with Liquid Finder preprocessing, patient-level cross-validation, and multi-method XAI (Grad-CAM, LIME, SHAP)."
+date-released: 2026-05-12
+keywords:
+  - Alzheimer's disease
+  - MRI
+  - explainable AI
+  - ADNI
+  - deep learning
+  - Grad-CAM
+  - patient-level evaluation
+license: MIT
+preferred-citation:
+  type: article
+  title: "Explainable AI for Alzheimer's Disease Stage Classification from MRI"
+  authors:
+    - family-names: Zayed
+      given-names: Omar
+    - family-names: Moatasem
+      given-names: Ahmed
+    - family-names: Khaled
+      given-names: Malak
+    - family-names: Ali
+      given-names: Farida
+  year: 2026
+  month: 5
+  notes: "Manuscript. Department of Computational Science and Artificial Intelligence, Zewail City of Science and Technology, Cairo, Egypt."
+  doi: ""

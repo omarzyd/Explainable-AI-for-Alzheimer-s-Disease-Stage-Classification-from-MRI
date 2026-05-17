@@ -1,0 +1,6 @@
+# Protect manuscript binaries — avoid line-ending corruption and merge conflicts
+*.pdf binary -diff merge=binary
+docs/reports/*.pdf binary -diff merge=binary
+
+# Notebooks
+*.ipynb linguist-detectable=true
