@@ -2,5 +2,8 @@
 *.pdf binary -diff merge=binary
 docs/reports/*.pdf binary -diff merge=binary
 
+# SVG assets — UTF-8 text (prevent CRLF corruption of XML)
+*.svg text eol=lf working-tree-encoding=UTF-8
+
 # Notebooks
 *.ipynb linguist-detectable=true

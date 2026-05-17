@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Explainable AI for Alzheimer's Disease Stage Classification from MRI" width="100%"/>
+  <img src="./assets/banner.svg" alt="Explainable AI for Alzheimer's Disease Stage Classification from MRI" width="100%"/>
 </p>
 
 <h1 align="center">Explainable AI for Alzheimer's Disease Stage Classification from MRI</h1>
@@ -91,7 +91,7 @@ This repository is the **official implementation** accompanying *Zayed et al. (2
 ## Pipeline
 
 <p align="center">
-  <img src="assets/pipeline-overview.svg" alt="End-to-end ML and XAI pipeline" width="95%"/>
+  <img src="./assets/pipeline-overview.svg" alt="End-to-end ML and XAI pipeline" width="95%"/>
 </p>
 
 Every notebook follows the same research pipeline:
@@ -112,7 +112,7 @@ Detailed diagrams and sequence charts: **[docs/ARCHITECTURE.md](docs/ARCHITECTUR
 ## Repository structure
 
 <p align="center">
-  <img src="assets/repo-structure.svg" alt="Repository folder layout" width="720"/>
+  <img src="./assets/repo-structure.svg" alt="Repository folder layout" width="720"/>
 </p>
 
 ```
