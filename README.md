@@ -88,6 +88,40 @@ This repository is the **official implementation** accompanying *Zayed et al. (2
 
 ---
 
+## Visual overview
+
+### ADNI cohort & disease stages
+
+Exploratory slice counts and representative **CN / MCI / AD** axial inputs (224×224). Full EDA: [`notebooks/preprocessing/eda-adni.ipynb`](notebooks/preprocessing/eda-adni.ipynb).
+
+<p align="center">
+  <img src="./assets/figures/eda-class-distribution.png" alt="Class distribution of ADNI preprocessed slices" width="48%"/>
+  &nbsp;
+  <img src="./assets/figures/samples-stages-cn-mci-ad.png" alt="Example CN MCI AD brain slices" width="48%"/>
+</p>
+
+### Liquid Finder preprocessing
+
+**Liquid Finder** uses a CSF intensity profile along the Z axis to select axial slices at the **lateral ventricles**, reducing skull/artifact shortcuts and aligning inputs with periventricular atrophy biomarkers (see manuscript §3).
+
+<p align="center">
+  <img src="./assets/figures/liquid-finder-concept.png" alt="Liquid Finder CSF-guided Z-axis slice selection" width="95%"/>
+</p>
+
+### Pipeline: slices → model → explanations
+
+<p align="center">
+  <img src="./assets/figures/pipeline-stages-slices.png" alt="CN MCI AD slices fed into the pipeline" width="95%"/>
+</p>
+
+<p align="center">
+  <img src="./assets/figures/pipeline-brain-stages.png" alt="From MRI slice through Liquid Finder crop, training, and Grad-CAM XAI" width="95%"/>
+</p>
+
+> Figures generated from local ADNI samples via `python scripts/generate_readme_figures.py`. Grad-CAM/LIME/SHAP panels in notebooks use the same ventricular regions.
+
+---
+
 ## Pipeline
 
 <p align="center">
@@ -117,7 +151,7 @@ Detailed diagrams and sequence charts: **[docs/ARCHITECTURE.md](docs/ARCHITECTUR
 
 ```
 .
-├── assets/                    # Banner & pipeline visuals (SVG)
+├── assets/                    # SVG diagrams + figures/ (PNG gallery)
 ├── docs/
 │   ├── ARCHITECTURE.md        # System & XAI architecture
 │   ├── PIPELINE.md            # Kaggle runbook
